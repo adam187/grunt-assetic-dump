@@ -1,0 +1,20 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "node": true,
+  "expr": true,
+  "onevar": true,
+  "smarttabs": true,
+  "quotmark": true,
+  "trailing": true,
+  "unused": true,
+  "indent": 2
+}

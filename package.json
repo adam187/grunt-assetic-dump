@@ -1,0 +1,39 @@
+{
+  "name": "grunt-assetic-dump",
+  "version": "0.0.0",
+  "description": "Grunt task to dump assets from symfony2 assetic yml to physical files",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adam187/grunt-assetic-dump.git"
+  },
+  "keywords": [
+    "cachebuster", "grunt", "gruntplugin", "dump", "css", "js"
+  ],
+  "author": {
+    "name": "Adam Misiorny",
+    "email": "adam.misiorny@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adam187/grunt-assetic-dump/issues"
+  },
+  "homepage": "https://github.com/adam187/grunt-assetic-dump",
+  "engines": {
+    "node": ">= 0.8"
+  },
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-nodeunit": "~0.2.2"
+  }
+}
