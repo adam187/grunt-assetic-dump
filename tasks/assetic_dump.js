@@ -13,31 +13,42 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('assetic_dump', 'Dump assets to filesystem', function () {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      separator: ';'
+      separator: grunt.util.linefeed,
+      banner: '',
+      footer: '',
+      configFile: 'app/config/config.yml',
+      assetsBaseDir: 'web/',
+      webDir: 'web/'
     });
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
+    var configFile = this.data.configFile || options.configFile;
+    var assetsBaseDir = this.data.assetsBaseDir || options.assetsBaseDir;
+    var webDir = this.data.webDir || options.webDir;
+
+    // read assets from symfony config file
+    var assets = grunt.file.readYAML(configFile).assetic.assets;
+
+    if (assets) {
+      for (var key in assets) {
+        var inputs = assets[key].inputs;
+        var output = assets[key].output;
+        if (inputs) {
+          var src = options.banner;
+          for (var i = 0, length = inputs.length; i < length; i++) {
+            var filepath = assetsBaseDir + inputs[i];
+            if (!grunt.file.exists(filepath)) {
+              grunt.log.error('Source file "' + filepath + '" not found.');
+            } else {
+              if (i) {
+                src += options.separator;
+              }
+              src += grunt.file.read(filepath);
+            }
+          }
+          grunt.file.write(webDir + output, src + options.footer);
         }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
-
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
-    });
+      }
+    }
 
   });
 
