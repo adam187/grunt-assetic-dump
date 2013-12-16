@@ -1,0 +1,13 @@
+assetic:
+    assets:
+        default_css:
+            inputs:
+                - 'bundles/bundle/body.css'
+                - 'bundles/bundle/print.css'
+            output: css/screen.css
+        default_js:
+            inputs:
+                - bundles/bundle/jquery.js
+                - bundles/bundle/app.js
+            output:
+                'js/all.js'
