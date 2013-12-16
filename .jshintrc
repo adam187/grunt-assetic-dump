@@ -11,7 +11,7 @@
   "eqnull": true,
   "node": true,
   "expr": true,
-  "onevar": true,
+  "onevar": false,
   "smarttabs": true,
   "quotmark": true,
   "trailing": true,
