@@ -1,7 +1,7 @@
 
 'use strict';
 
-// var grunt = require('grunt');
+var grunt = require('grunt');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -23,5 +23,33 @@
     test.ifError(value)
 */
 
-exports.assets_dump = {
+var testFiles = ['css/screen.css', 'js/all.js'];
+
+exports.assetic_dump = {
+  setUp: function(done) {
+    // setup here if necessary
+    done();
+  },
+  default_options: function(test) {
+    test.expect(2);
+
+    testFiles.forEach(function(file) {
+      var actual = grunt.file.read('tmp/' + file);
+      var expected = grunt.file.read('test/expected/default_options/' + file);
+      test.equal(actual, expected, 'files should be equal.');
+    });
+
+    test.done();
+  },
+  custom_options: function(test) {
+    test.expect(2);
+
+    testFiles.forEach(function(file) {
+      var actual = grunt.file.read('tmp/custom_options/' + file);
+      var expected = grunt.file.read('test/expected/custom_options/' + file);
+      test.equal(actual, expected, 'files should be equal.');
+    });
+
+    test.done();
+  }
 };
