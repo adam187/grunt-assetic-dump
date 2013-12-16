@@ -30,6 +30,21 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     assetic_dump: {
+      options: {
+        configFile: 'test/app/config/config.yml',
+        assetsBaseDir: 'test/fixtures/',
+        webDir: 'tmp/'
+      },
+      default_options: {
+      },
+      custom_options: {
+        webDir: 'tmp/custom_options/',
+        options: {
+          separator: '/* sep */\n',
+          banner: '/* banner */\n',
+          footer: '/* footer */\n'
+        }
+      }
     },
 
     // Unit tests.
