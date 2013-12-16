@@ -39,6 +39,6 @@
     "grunt": "~0.4.0"
   },
   "keywords": [
-    "cachebuster", "grunt", "gruntplugin", "dump", "css", "js"
+    "grunt", "gruntplugin", "dump", "assets", "css", "js", "assetic", "symfony2"
   ]
 }
