@@ -1,7 +1,7 @@
 {
   "name": "grunt-assetic-dump",
   "description": "Grunt task to dump assets from symfony2 assetic config.yml to physical files",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/adam187/grunt-assetic-dump",
   "author": {
     "name": "Adam Misiorny",
