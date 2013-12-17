@@ -45,8 +45,12 @@ module.exports = function(grunt) {
               src += grunt.file.read(filepath);
             }
           }
-          grunt.log.oklns('File "' + webDir + output + '" created.');
-          grunt.file.write(webDir + output, src + options.footer);
+          var result = grunt.file.write(webDir + output, src + options.footer);
+          if (result) {
+            grunt.log.oklns('File "' + webDir + output + '" created.');
+          } else {
+            grunt.log.errorlns('File "' + webDir + output + '" not created.');
+          }
         }
       }
     }
