@@ -45,6 +45,7 @@ module.exports = function(grunt) {
               src += grunt.file.read(filepath);
             }
           }
+          grunt.log.oklns('File "' + webDir + output + '" created.');
           grunt.file.write(webDir + output, src + options.footer);
         }
       }
